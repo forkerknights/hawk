@@ -218,14 +218,14 @@ public final class HawkServer implements Comparable<HawkServer>
    *
    * @return text suitable for placement in a WWW-Authenticate header
    */
-  public String generateAuthenticateHeader()
+  public String generateAuthenticateHeader(final HawkCredentials credentials)
   {
     long curTime = System.currentTimeMillis() / Hawk.MILLISECONDS_IN_SECONDS;
     StringBuilder sb = new StringBuilder(64);
     sb.append("Hawk ts=\"");
     sb.append(String.valueOf(curTime));
     sb.append("\" tsm=\"");
-    sb.append(Hawk.calculateTSMac(curTime));
+    sb.append(Hawk.calculateTSMac(credentials, curTime));
     sb.append('"');
 
     return sb.toString();
