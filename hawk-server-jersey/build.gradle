@@ -13,15 +13,3 @@ dependencies {
     testCompile 'org.eclipse.jetty:jetty-servlet:9.1.2.v20140210'
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            pom.project {
-                pom.artifactId = 'hawk-server-jersey'
-                name 'Hawk Server for Jersey'
-                description 'Java implementation of Hawk protocol - server for Jersey'
-            }
-        }
-    }
-}
-

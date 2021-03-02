@@ -3,15 +3,3 @@ dependencies {
     compile 'com.wealdtech:wealdtech-configuration:2.0.0'
     compile 'com.google.guava:guava:17.0'
 }
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            pom.project {
-                pom.artifactId = 'hawk-core'
-                name 'Hawk Core'
-                description 'Java implementation of Hawk protocol - core'
-            }
-        }
-    }
-}

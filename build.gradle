@@ -1,8 +1,6 @@
 subprojects {
     apply plugin: 'java'
     apply plugin: 'maven'
-    apply plugin: 'idea'
-    apply plugin: 'signing'
 
     repositories {
         mavenCentral()
@@ -13,8 +11,8 @@ subprojects {
         testCompile 'org.testng:testng:6.8'
     }
 
-    group = 'com.wealdtech.hawk'
-    version = '1.2.3'
+    group = 'com.github.forkerknights'
+    version = '1.2.5'
 
     test {
         useTestNG()
@@ -44,12 +42,6 @@ subprojects {
         archives jar
         archives javadocJar
         archives sourcesJar
-    }
-
-    idea.module.iml {
-        beforeMerged { module ->
-            module.dependencies.clear()
-        }
     }
 }
 

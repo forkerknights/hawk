@@ -4,16 +4,3 @@ dependencies {
     compile 'com.sun.jersey:jersey-core:1.18'
     compile 'com.sun.jersey:jersey-client:1.18'
 }
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            pom.project {
-                pom.artifactId = 'hawk-client-jersey'
-                name 'Hawk client for Jersey'
-                description 'Java implementation of Hawk protocol - client for Jersey'
-            }
-        }
-    }
-}
-
