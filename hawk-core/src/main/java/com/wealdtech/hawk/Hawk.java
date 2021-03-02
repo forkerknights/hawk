@@ -185,6 +185,19 @@ public class Hawk
     }
     return port;
   }
+  
+  @Deprecated
+  public static String calculateTSMac(final long curtime)
+  {
+	  
+    final HawkCredentials credentials = new HawkCredentials.Builder()
+                                                           .keyId("dummy")
+                                                           .key("dummy")
+                                                           .algorithm(Algorithm.SHA256)
+                                                           .build();
+        
+    return calculateMac(credentials, String.valueOf(curtime));
+  }
 
   public static String calculateTSMac(final HawkCredentials credentials, final long curtime)
   {

@@ -211,6 +211,20 @@ public final class HawkServer implements Comparable<HawkServer>
     checkState((Math.abs(now - timestamp) <= configuration.getTimestampSkew()), "The timestamp is too far from the current time to be acceptable");
   }
 
+  @Deprecated
+  public String generateAuthenticateHeader()
+  {
+    long curTime = System.currentTimeMillis() / Hawk.MILLISECONDS_IN_SECONDS;
+    StringBuilder sb = new StringBuilder(64);
+    sb.append("Hawk ts=\"");
+    sb.append(String.valueOf(curTime));
+    sb.append("\" tsm=\"");
+    sb.append(Hawk.calculateTSMac(curTime));
+    sb.append('"');
+
+    return sb.toString();
+  }
+  
   /**
    * Generate text for a WWW-Authenticate header after a failed authentication.
    * <p>
