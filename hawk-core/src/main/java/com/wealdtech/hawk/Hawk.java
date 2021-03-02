@@ -201,14 +201,15 @@ public class Hawk
 
   public static String calculateTSMac(final HawkCredentials credentials, final long curtime)
   {
-	  /*
-    final HawkCredentials credentials = new HawkCredentials.Builder()
-                                                           .keyId("dummy")
-                                                           .key("dummy")
-                                                           .algorithm(Algorithm.SHA256)
-                                                           .build();
-        */
-    return calculateMac(credentials, String.valueOf(curtime));
+	  
+	 StringBuilder sb = new StringBuilder(1024);
+	 sb.append("hawk.");
+	 sb.append(HAWKVERSION);
+	 sb.append(".ts");
+	 sb.append('\n');
+	 sb.append(curtime);
+	 sb.append('\n');
+    return calculateMac(credentials, sb.toString());
   }
 
   /**
